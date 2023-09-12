@@ -1,6 +1,9 @@
 /// @file usl string lib header file
 /// @author Mauro Baladés <> https://github.com/mauro-balades/ultimate-string-library 
 
+#include <stdlib.h>
+#include <stddef.h>
+
 #ifndef __USL_H__
 #define __USL_H__
 
@@ -37,7 +40,7 @@ usl usl_new(size_t size);
 /// @example
 ///   usl s = usl_from("Hello World!");
 ///   usl_free(s);
-usl usl_from(char* str);
+usl usl_from(const char* str);
 
 /// @brief It frees the usl string.
 /// @param usl The usl string to be freed.
