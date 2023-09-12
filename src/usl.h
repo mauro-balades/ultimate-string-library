@@ -18,14 +18,26 @@ typedef char* usl;
 ///        a null character unlike a normal string.
 /// @note The usl string contains the size/length of the
 ///       string in the first and second byte.
+/// @param size The size of the usl string.
 /// @return A new usl string.
 /// @warning The usl string lib does not support null terminated
 ///          strings (it ignores the null character).
 /// @see usl_as_str To convert a usl string to a normal C string.
 /// @example
-///   usl s = usl_new();
+///   usl s = usl_new(10);
 ///   usl_free(s);
-usl usl_new();
+usl usl_new(size_t size);
+
+/// @brief It creates a new usl string from a normal C string.
+/// @param str The normal C string.
+/// @return A new usl string.
+/// @warning The usl string lib will remove the null character
+///          from the normal C string.
+/// @see usl_as_str To convert a usl string to a normal C string.
+/// @example
+///   usl s = usl_from("Hello World!");
+///   usl_free(s);
+usl usl_from(char* str);
 
 /// @brief It frees the usl string.
 /// @param usl The usl string to be freed.
