@@ -1,7 +1,15 @@
+/// @file usl string lib header file
+/// @author Mauro Baladés <> https://github.com/mauro-balades/ultimate-string-library 
 
 #ifndef __USL_H__
 #define __USL_H__
 
+/// @brief The usl string type.
+/// @note The usl string contains the size/length of the
+///       string in the first and second byte.
+/// @warning The usl string lib does not support null terminated
+///          strings (it ignores the null character).
+/// @see usl_new To create a new usl string.
 typedef char* usl;
 
 /// @brief It creates a new usl string. The differenece
@@ -9,7 +17,7 @@ typedef char* usl;
 ///        a usl string is a string that does not contain
 ///        a null character unlike a normal string.
 /// @note The usl string contains the size/length of the
-///       string in the first byte.
+///       string in the first and second byte.
 /// @return A new usl string.
 /// @warning The usl string lib does not support null terminated
 ///          strings (it ignores the null character).
