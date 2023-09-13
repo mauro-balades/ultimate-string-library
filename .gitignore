@@ -55,3 +55,9 @@ Makefile
 CMakeCache.txt
 cmake_install.cmake
 CMakeFiles/
+.vscode/
+bin/
+googletest*
+_deps/
+CTestTestfile.cmake
+usl_TEST*

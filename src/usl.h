@@ -7,9 +7,13 @@
 #ifndef __USL_H__
 #define __USL_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /// @brief The usl string type.
 /// @note The usl string contains the size/length of the
-///       string in the first and second byte.
+///       string in the first to fourth bytes.
 /// @warning The usl string lib does not support null terminated
 ///          strings (it ignores the null character).
 /// @see usl_new To create a new usl string.
@@ -20,7 +24,7 @@ typedef char* usl;
 ///        a usl string is a string that does not contain
 ///        a null character unlike a normal string.
 /// @note The usl string contains the size/length of the
-///       string in the first and second byte.
+///       string in the first to fourth bytes.
 /// @param size The size of the usl string.
 /// @return A new usl string.
 /// @warning The usl string lib does not support null terminated
@@ -92,5 +96,9 @@ int usl_last_index_of(usl, char);
 ///   free(str);
 ///   usl_free(s);
 char* usl_as_str(usl);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // __USL_H__
