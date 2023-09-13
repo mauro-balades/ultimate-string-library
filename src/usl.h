@@ -55,7 +55,7 @@ void usl_free(usl str);
 /// @brief It returns the length of the usl string.
 /// @param str The usl string.
 /// @return The length of the usl string.
-int usl_len(usl str);
+size_t usl_len(usl str);
 
 /// @brief It returns the character at the specified index.
 /// @param str The usl string.
