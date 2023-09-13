@@ -74,34 +74,33 @@ char usl_at(usl str, size_t index);
 /// @return The substring of the usl string.
 usl usl_substring(usl str, size_t start, size_t end);
 
-/// @brief It returns the index of the first occurence of the
-///        specified character in the usl string.
-/// @param str The usl string.
-/// @param ch The character to be searched.
-/// @return The index of the first occurence of the specified
-///         character in the usl string.
-int usl_index_of(usl str, char ch);
-
-/// @brief It returns the index of the last occurence of the
-///        specified character in the usl string.
-/// @param str The usl string.
-/// @param ch The character to be searched.
-/// @return The index of the last occurence of the specified
-///         character in the usl string.
-int usl_lindex_of(usl str, char ch);
-
 /// @brief It returns the usl string as a normal C string.
 /// @param str The usl string.
 /// @return The usl string as a normal C string.
 /// @warning The usl string lib does not support null terminated
 ///          strings (it ignores the null character).
 /// @see usl_new To create a new usl string.
+/// @note NULL may be returned if `malloc` fails.
 /// @example
 ///   usl s = usl_new();
 ///   char* str = usl_as_str(s);
 ///   free(str);
 ///   usl_free(s);
 char* usl_as_str(usl str);
+
+/// @brief It concatenates two usl strings.
+/// @param str1 The first usl string.
+/// @param str2 The second usl string.
+/// @return The concatenated usl string.
+/// @warning The usl string lib does not support null terminated
+///          strings (it ignores the null character).
+/// @see usl_new To create a new usl string.
+/// @note NULL may be returned if `malloc` fails.
+/// @example
+///   usl s1 = usl_from("Hello");
+///   usl s2 = usl_from(" World!");
+///   usl s3 = usl_concat(s1, s2);
+usl usl_concat(usl str1, usl str2);
 
 /// @brief Private function to set the size of the usl string.
 /// @param str The usl string.

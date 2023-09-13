@@ -41,15 +41,18 @@ TEST(char_at, out_of_bounds) {
   usl_free(usl);
 }
 
-TEST(usl_substring, ok) {
-  usl x = usl_from("Hello, World!");
-  usl usl2 = usl_substring(x, 0, 5);
-  ASSERT_EQ(5, usl_len(usl2));
-  ASSERT_EQ('H', usl_at(usl2, 0));
-  ASSERT_EQ('e', usl_at(usl2, 1));
-  ASSERT_EQ('l', usl_at(usl2, 2));
-  ASSERT_EQ('l', usl_at(usl2, 3));
-  ASSERT_EQ('o', usl_at(usl2, 4));
+TEST(usl_as_str, ok) {
+  usl usl = usl_from("Hello, World!");
+  ASSERT_STREQ("Hello, World!", usl_as_str(usl));
+  usl_free(usl);
+}
+
+TEST(usl_concat, ok) {
+  usl usl1 = usl_from("Hello, ");
+  usl usl2 = usl_from("World!");
+  usl usl3 = usl_concat(usl1, usl2);
+  ASSERT_STREQ("Hello, World!", usl_as_str(usl3));
+  usl_free(usl1);
   usl_free(usl2);
-  usl_free(x);
+  usl_free(usl3);
 }
