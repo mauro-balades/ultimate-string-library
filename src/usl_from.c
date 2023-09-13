@@ -12,5 +12,6 @@ usl usl_from(const char *str) {
     result[1] = (len >> 8) & 0xFF;
     result[2] = (len >> 16) & 0xFF;
     result[3] = (len >> 24) & 0xFF;
+    memcpy(result+4, str, len);
     return result;
 }

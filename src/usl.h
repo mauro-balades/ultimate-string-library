@@ -47,45 +47,47 @@ usl usl_new(size_t size);
 usl usl_from(const char* str);
 
 /// @brief It frees the usl string.
-/// @param usl The usl string to be freed.
-void usl_free(usl);
+/// @param str The usl string to be freed.
+void usl_free(usl str);
 
 /// @brief It returns the length of the usl string.
-/// @param usl The usl string.
+/// @param str The usl string.
 /// @return The length of the usl string.
-int usl_len(usl);
+int usl_len(usl str);
 
 /// @brief It returns the character at the specified index.
-/// @param usl The usl string.
+/// @param str The usl string.
 /// @param index The index of the character.
+/// @note If the index is out of bounds, it will return
+///       the null character (aka NULL or '\0').
 /// @return The character at the specified index.
-char usl_char_at(usl, int);
+char usl_at(usl str, size_t index);
 
 /// @brief It returns the substring of the usl string.
-/// @param usl The usl string.
+/// @param str The usl string.
 /// @param start The starting index of the substring.
 /// @param end The ending index of the substring.
 /// @return The substring of the usl string.
-usl usl_substring(usl, int, int);
+usl usl_substring(usl str, size_t start, size_t end);
 
 /// @brief It returns the index of the first occurence of the
 ///        specified character in the usl string.
-/// @param usl The usl string.
+/// @param str The usl string.
 /// @param ch The character to be searched.
 /// @return The index of the first occurence of the specified
 ///         character in the usl string.
-int usl_index_of(usl, char);
+int usl_index_of(usl str, char ch);
 
 /// @brief It returns the index of the last occurence of the
 ///        specified character in the usl string.
-/// @param usl The usl string.
+/// @param str The usl string.
 /// @param ch The character to be searched.
 /// @return The index of the last occurence of the specified
 ///         character in the usl string.
-int usl_last_index_of(usl, char);
+int usl_lindex_of(usl str, char ch);
 
 /// @brief It returns the usl string as a normal C string.
-/// @param usl The usl string.
+/// @param str The usl string.
 /// @return The usl string as a normal C string.
 /// @warning The usl string lib does not support null terminated
 ///          strings (it ignores the null character).
@@ -95,7 +97,7 @@ int usl_last_index_of(usl, char);
 ///   char* str = usl_as_str(s);
 ///   free(str);
 ///   usl_free(s);
-char* usl_as_str(usl);
+char* usl_as_str(usl str);
 
 #ifdef __cplusplus
 }
