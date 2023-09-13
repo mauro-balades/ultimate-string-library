@@ -7,6 +7,8 @@
 #ifndef __USL_H__
 #define __USL_H__
 
+#define USL_SIZE 4
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -67,6 +69,8 @@ char usl_at(usl str, size_t index);
 /// @param str The usl string.
 /// @param start The starting index of the substring.
 /// @param end The ending index of the substring.
+/// @note If the start index is out of bounds, it will return
+///       the null character (aka NULL or '\0').
 /// @return The substring of the usl string.
 usl usl_substring(usl str, size_t start, size_t end);
 
@@ -98,6 +102,11 @@ int usl_lindex_of(usl str, char ch);
 ///   free(str);
 ///   usl_free(s);
 char* usl_as_str(usl str);
+
+/// @brief Private function to set the size of the usl string.
+/// @param str The usl string.
+/// @param size The size of the usl string.
+void _usl_set_size(usl str, size_t size);
 
 #ifdef __cplusplus
 }

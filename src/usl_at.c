@@ -15,5 +15,5 @@ char usl_at(usl str, size_t index) {
     // ---------------
     //  | 5 0 0 0 0 |
     // ---------------
-    return ((char*)((void*)str+4))[index];
+    return ((char*)((void*)str+USL_SIZE))[index];
 }
