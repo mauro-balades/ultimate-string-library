@@ -4,16 +4,11 @@
 #include "usl.h"
 
 char usl_at(usl str, size_t index) {
-    size_t length = usl_len(str);
-    if (index >= length) // we go back to the beginning of the string
-        return NULL;
-    // we add 4 to the index because the first 4 bytes are the length
-    // example:
-    // usl = "hello"
-    // ---------------
-    //  | h e l l o |
-    // ---------------
-    //  | 5 0 0 0 0 |
-    // ---------------
-    return ((char*)((void*)str+USL_SIZE))[index];
+    // we store the length of the string in *(size_t*)str
+    // so we need to add sizeof(size_t) to the pointer
+    if (index >= usl_len(str))
+        return '\0';
+    
+    // we return the character at the given index
+    return usl_as_str(str)[index];
 }

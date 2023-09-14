@@ -3,11 +3,15 @@
 
 #include <stdlib.h>
 #include <stddef.h>
+#include <stdint.h>
 
 #ifndef __USL_H__
 #define __USL_H__
 
-#define USL_SIZE 4
+#if !defined(USL_PADDING_SIZE) || !defined(USL_PADDING_TYPE)
+#define USL_PADDING_SIZE 2
+#define USL_PADDING_TYPE uint8_t
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -16,10 +20,8 @@ extern "C" {
 /// @brief The usl string type.
 /// @note The usl string contains the size/length of the
 ///       string in the first to fourth bytes.
-/// @warning The usl string lib does not support null terminated
-///          strings (it ignores the null character).
 /// @see usl_new To create a new usl string.
-typedef char* usl;
+typedef uint8_t* usl;
 
 /// @brief It creates a new usl string. The differenece
 ///        between a usl and a normal string is that

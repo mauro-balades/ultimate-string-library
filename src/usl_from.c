@@ -9,6 +9,8 @@ usl usl_from(const char *str) {
     // we need to add the length to the first 4 bytes of the usl
     // so that we can use it in usl_len
     _usl_set_size(result, len);
-    memcpy(result+USL_SIZE, str, len);
+    for (size_t i = 0; i < len; i++) {
+        result[i + USL_PADDING_SIZE] = str[i];
+    }
     return result;
 }

@@ -42,9 +42,9 @@ TEST(char_at, out_of_bounds) {
 }
 
 TEST(usl_as_str, ok) {
-  usl usl = usl_from("Hello, World!");
-  ASSERT_STREQ("Hello, World!", usl_as_str(usl));
-  usl_free(usl);
+  usl x = usl_from("Hello, World!");
+  ASSERT_STREQ("Hello, World!", usl_as_str(x));
+  usl_free(x);
 }
 
 TEST(usl_concat, ok) {
