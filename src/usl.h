@@ -5,8 +5,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#ifndef __USL_H__
-#define __USL_H__
+#ifndef _USL_H_
+#define _USL_H_
 
 #if !defined(USL_PADDING_SIZE) || !defined(USL_PADDING_TYPE)
 #define USL_PADDING_SIZE 2
@@ -19,7 +19,7 @@ extern "C" {
 
 /// @brief The usl string type.
 /// @note The usl string contains the size/length of the
-///       string in the first to fourth bytes.
+///       string in the string it's self bytes.
 /// @see usl_new To create a new usl string.
 typedef uint8_t* usl;
 
@@ -28,7 +28,7 @@ typedef uint8_t* usl;
 ///        a usl string is a string that does not contain
 ///        a null character unlike a normal string.
 /// @note The usl string contains the size/length of the
-///       string in the first to fourth bytes.
+///       string in the string it's self bytes.
 /// @param size The size of the usl string.
 /// @return A new usl string.
 /// @warning The usl string lib does not support null terminated
@@ -113,4 +113,4 @@ void _usl_set_size(usl str, size_t size);
 }
 #endif
 
-#endif // __USL_H__
+#endif // _USL_H_
